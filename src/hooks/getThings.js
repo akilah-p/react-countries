@@ -28,7 +28,7 @@ function filterCountries() {
       country.name.includes(query) && (country.continent === continent || continent === 'All')
     );
   });
-}
+
   return (
       
       <div className="countries">
@@ -49,8 +49,13 @@ function filterCountries() {
 {filterCountries().map((country) => (
     <div key={country.id}>
         <img src= {`https://flagcdn.com/16x12/${country.iso2.toLowerCase()}.png`} alt={'Flag of' + country.name} />
-        
+        <span> {'' + country.name}</span>
+</div>
 ))}
 </div>
   );
 }
+}
+
+
+export default useCountries;
