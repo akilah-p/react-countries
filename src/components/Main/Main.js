@@ -4,7 +4,7 @@ import { useCountries } from '../../hooks/getThings';
 export default function Continents() {
   const [continent, setContinent] = useState('All');
   const [query, setQuery] = useState('');
-  const countries = useCountries();
+  const { countries, error } = useCountries();
 
   function filterCountries() {
     return countries.filter((country) => {
@@ -38,16 +38,17 @@ export default function Continents() {
           </select>
         </div>
       </div>
-      <div className="countries-list">{filterCountries().map((country) => (
+      <div className="countries-list"> <p style={{ color: 'red' }}>{error}</p>
+        {filterCountries().map((country) => (
       
-        <div className="country" key={country.id}>
-          <img
-            src={`https://flagcdn.com/72x54/${country.iso2.toLowerCase()}.png`} width="72" height="54"
-            alt={'Flag of ' + country.name}
-          />
-          <span>{' ' + country.name}</span>
-        </div>
-      ))}</div>
+          <div className="country" key={country.id}>
+            <img
+              src={`https://flagcdn.com/72x54/${country.iso2.toLowerCase()}.png`} width="72" height="54"
+              alt={'Flag of ' + country.name}
+            />
+            <span>{' ' + country.name}</span>
+          </div>
+        ))}</div>
       
     </div>
   );
