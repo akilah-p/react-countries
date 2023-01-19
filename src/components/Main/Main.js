@@ -15,32 +15,40 @@ export default function Continents() {
   }
 
   return (
-    <div className="App">
+    <div>
+      
       <h1>Countries of the World</h1>
-      <input
-        placeholder="Search Countries"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <select value={continent} onChange={(e) => setContinent(e.target.value)}>
-        <option value="All">All</option>
-        <option value="Africa">Africa</option>
-        <option value="Antarctica">Antarctica</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="North America">North America</option>
-        <option value="Oceania">Oceania</option>
-        <option value="South America">South America</option>
-      </select>
-      {filterCountries().map((country) => (
-        <div key={country.id}>
+      <div className="filters">
+        <input
+          placeholder="Search Countries"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        /> 
+        <div>
+
+          <select value={continent} onChange={(e) => setContinent(e.target.value)}>
+            <option value="All">All</option>
+            <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="North America">North America</option>
+            <option value="Oceania">Oceania</option>
+            <option value="South America">South America</option>
+          </select>
+        </div>
+      </div>
+      <div className="countries-list">{filterCountries().map((country) => (
+      
+        <div className="country" key={country.id}>
           <img
-            src={`https://flagcdn.com/16x12/${country.iso2.toLowerCase()}.png`}
+            src={`https://flagcdn.com/72x54/${country.iso2.toLowerCase()}.png`} width="72" height="54"
             alt={'Flag of ' + country.name}
           />
           <span>{' ' + country.name}</span>
         </div>
-      ))}
+      ))}</div>
+      
     </div>
   );
 }
