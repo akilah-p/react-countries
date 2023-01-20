@@ -5,7 +5,7 @@ import './Main.css';
 export default function Main() {
   const [continent, setContinent] = useState('All');
   const [query, setQuery] = useState('');
-  const { countries, loading } = useCountries();
+  const { countries, loading, error } = useCountries();
  
 
   function filterCountries() {
@@ -41,6 +41,7 @@ export default function Main() {
         </div>
       </div>
       <div className="countries-list">
+        <p style={{ color: 'red' }}>{error}</p>
         {filterCountries().map((country) => (
       
           <div className="country" key={country.id}>
