@@ -1,0 +1,13 @@
+.countries-list { display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.country {
+    flex-direction: column;
+    height: 200px;
+    justify-content: flex-start;
+    text-align: center;
+    width: 200px;
+}
