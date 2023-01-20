@@ -15,8 +15,7 @@ export default function Continents() {
   }
 
   return (
-    <div>
-      
+    <div className="App">
       <h1>Countries of the World</h1>
       <div className="filters">
         <input

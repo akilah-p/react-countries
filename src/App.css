@@ -9,30 +9,26 @@ body {
   color:white;
 }
 
-
-.container {
-  display:flex;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.filters {
-  justify-content:center;
-  justify-items: center;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-.countries-list {
-  
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-
-}
-
-.country {
   flex-direction: column;
-   height: 200px;
-    justify-content: flex-start;
-    text-align: center;
-    width: 200px;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 span {
