@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useCountries } from '../../hooks/getThings';
+import './Main.css';
 
-export default function Continents() {
+export default function Main() {
   const [continent, setContinent] = useState('All');
   const [query, setQuery] = useState('');
-  const { countries, error } = useCountries();
+  const { countries, loading } = useCountries();
+ 
 
   function filterCountries() {
     return countries.filter((country) => {
@@ -13,9 +15,10 @@ export default function Continents() {
       );
     });
   }
+  if (loading) return <p className="loader">Please have some patience, your flags are loading....</p>;
 
   return (
-    <div className="App">
+    <div>
       <h1>Countries of the World</h1>
       <div className="filters">
         <input
@@ -37,7 +40,7 @@ export default function Continents() {
           </select>
         </div>
       </div>
-      <div className="countries-list"> <p style={{ color: 'red' }}>{error}</p>
+      <div className="countries-list">
         {filterCountries().map((country) => (
       
           <div className="country" key={country.id}>
@@ -48,7 +51,9 @@ export default function Continents() {
             <span>{' ' + country.name}</span>
           </div>
         ))}</div>
-      
+    
     </div>
+
   );
+  
 }
